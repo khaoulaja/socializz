@@ -1,4 +1,5 @@
-const { Schema, model} = require('mongoose')
+const { Schema, model} = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema(
     {
@@ -18,6 +19,11 @@ const UserSchema = new Schema(
                 },
                 message: "Email is not valid!"
             }
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (createdVal) => dateFormat(createdVal)
         }
     },
     {
