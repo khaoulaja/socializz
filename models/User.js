@@ -19,11 +19,6 @@ const UserSchema = new Schema(
                 },
                 message: "Email is not valid!"
             }
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: (createdVal) => dateFormat(createdVal)
         }
     },
     {
