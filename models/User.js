@@ -1,5 +1,4 @@
 const { Schema, model} = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema(
     {
@@ -19,7 +18,19 @@ const UserSchema = new Schema(
                 },
                 message: "Email is not valid!"
             }
-        }
+        },
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Thought'
+            }
+        ],
+        friends: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ]
     },
     {
         toJSON: {
@@ -28,9 +39,13 @@ const UserSchema = new Schema(
         },
         id: false
     }
-)
+);
+
+UserSchema.virtual('friendCount').get(function (){
+    return this.friends.length;
+})
 
 //create user model
 const User = model('User', UserSchema);
 
-module.exports = User
+module.exports = User;
