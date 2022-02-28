@@ -21,7 +21,7 @@
 
   * To start using this application run : <br/>
     - npm start <br/>
-   * For a demonstration about usage, checkout the [walkthrough video](http....)
+   * For a demonstration about usage, checkout the [walkthrough video](https://drive.google.com/file/d/1UbgEv9j28LLLYg7TCUm6K8DlM3EGqNid/view?usp=drivesdk)
 
  
   ## Contribution
